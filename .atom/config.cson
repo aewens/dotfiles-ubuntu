@@ -1,0 +1,48 @@
+"*":
+  core:
+    disabledPackages: [
+      "coffee-eval"
+      "coffee-eval"
+      "coffee-eval"
+      "remember-session"
+      "emmet-jsx-css-modules"
+      "language-javascript-jsx"
+      "activate-power-mode"
+    ]
+    excludeVcsIgnoredPaths: false
+    projectHome: "/Users/aewens/proto"
+    telemetryConsent: "limited"
+    themes: [
+      "atom-material-ui"
+      "atom-dark-syntax"
+    ]
+  editor:
+    fontFamily: "Fira Code"
+    invisibles: {}
+    showIndentGuide: true
+    showInvisibles: true
+    tabLength: 4
+  emmet: {}
+  "exception-reporting":
+    userId: "08dda158-b398-885d-6408-1d14e82e9877"
+  "markdown-preview": {}
+  metrics:
+    userId: "6602af5cc92f3fd85e609594908767691a72918a"
+  "remember-session":
+    height: 873
+    path: ""
+    selectedTab: ""
+    tabs: ""
+    width: 1440
+    x: 0
+    y: 23
+  "tree-view": {}
+  "vim-mode":
+    startInInsertMode: true
+  welcome:
+    showOnStartup: false
+  whitespace:
+    removeTrailingWhitespace: false
+".ruby.source":
+  editor:
+    tabLength: 4
