@@ -8,6 +8,7 @@
       "emmet-jsx-css-modules"
       "language-javascript-jsx"
       "activate-power-mode"
+      "vim-mode"
     ]
     excludeVcsIgnoredPaths: false
     projectHome: "/Users/aewens/proto"
@@ -18,10 +19,12 @@
     ]
   editor:
     fontFamily: "Fira Code"
+    fontSize: 13
     invisibles: {}
     showIndentGuide: true
     showInvisibles: true
     tabLength: 4
+    tabType: "soft"
   emmet: {}
   "exception-reporting":
     userId: "08dda158-b398-885d-6408-1d14e82e9877"
