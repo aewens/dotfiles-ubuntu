@@ -1,4 +1,7 @@
-URxvt*background:                     #151718
+urxvt*depth: 32
+urxvt*background: rgba:0000/0000/0200/c800
+
+# URxvt*background:                     #151718
 URxvt*foreground:                     #d6d6d6
 URxvt*cursorColor:                    #d6d6d6
 
@@ -51,10 +54,11 @@ URxvt.scrollBar: false
 URxvt.font: xft:Fira Code:size=12
 URxvt.depth: 24
 
-URxvt.perl-ext-common: clipboard,fullscreen
-
 URxvt.iso14755: false
-URxvt.keysym.C-S-C: perl:clipboard:copy
-URxvt.keysym.C-S-V: perl:clipboard:paste
-URxvt.keysym.C-A-V: perl:clipboard:paste_escaped
+URxvt.iso14755_52: false
+
+URxvt.perl-ext-common: default,selection-to-clipboard,pasta,matcher,keyboard-select,fullscreen,clipboard
+
 URxvt.keysym.F11: perl:fullscreen:switch
+URxvt.keysym.Control-Shift-V: perl:pasta:paste
+URxvt.keysym.Control-Shift-C: perl:clipboard:copy
