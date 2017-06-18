@@ -250,6 +250,7 @@ exec --no-startup-id i3-msg 'workspace $ws2; exec /usr/bin/chromium-browser'
 
 exec_always --no-startup-id feh --bg-scale /home/aewens/.wallpaper
 exec_always --no-startup-id xrdb ~/.Xresources
+exec_always --no-startup-id xmodmap ~/.Xmodmap
 exec xset s off
 exec xset -dpms
 exec compton -ff
