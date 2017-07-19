@@ -9,3 +9,4 @@ set shiftwidth=4
 set expandtab
 imap <S-Tab> <C-o><<
 cmap :w!! %!sudo tee > /dev/null %
+set pastetoggle=<F2>
