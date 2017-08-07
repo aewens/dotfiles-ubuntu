@@ -34,4 +34,5 @@
   'ctrl-shift-c': 'vim-mode:reset-normal-mode'
 'atom-text-editor:not([mini])':
   'ctrl-alt-e': 'emmet:expand-abbreviation'
+  'ctrl-alt-m': 'emmet:merge-lines'
   

@@ -11,6 +11,9 @@
       "vim-mode"
     ]
     excludeVcsIgnoredPaths: false
+    packagesWithKeymapsDisabled: [
+      "emmet"
+    ]
     projectHome: "/Users/aewens/proto"
     telemetryConsent: "limited"
     themes: [
@@ -39,7 +42,8 @@
     width: 1440
     x: 0
     y: 23
-  "tree-view": {}
+  "tree-view":
+    hideVcsIgnoredFiles: true
   "vim-mode":
     startInInsertMode: true
   welcome:
