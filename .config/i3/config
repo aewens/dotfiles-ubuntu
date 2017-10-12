@@ -228,7 +228,8 @@ bindsym $mod+Print exec scrot -u $HOME/Pictures/Screenshots/`date +%Y-%m-%d_%H:%
 bindsym --release $mod+Shift+Print exec scrot -s $HOME/Pictures/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
 
 # Reset audio
-bindsym $mod+Shift+a exec ~/.scripts/reset_audio
+bindsym $mod+Shift+a exec --no-startup-id pactl set-card-profile 0 output:analog-stereo+input:analog-stereo
+bindsym $mod+Shift+s exec --no-startup-id pactl set-card-profile 0 output:hdmi-stereo+input:analog-stereo
 
 gaps inner 10
 gaps outer 15
