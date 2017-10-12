@@ -2,40 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11739-17199-154fmdl/package.tgz",
+        "raw": "/tmp/d-11794-13587-nyvfk9.hhtu8lg14i/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11739-17199-154fmdl/package.tgz",
-        "spec": "/tmp/d-11739-17199-154fmdl/package.tgz",
+        "rawSpec": "/tmp/d-11794-13587-nyvfk9.hhtu8lg14i/package.tgz",
+        "spec": "/tmp/d-11794-13587-nyvfk9.hhtu8lg14i/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11739-17199-uprjhb"
+      "/tmp/apm-install-dir-11794-13587-rl2784.wxp4d9529"
     ]
   ],
-  "_from": "../d-11739-17199-154fmdl/package.tgz",
-  "_id": "language-haskell@1.12.1",
+  "_from": "../d-11794-13587-nyvfk9.hhtu8lg14i/package.tgz",
+  "_id": "language-haskell@1.14.2",
   "_inCache": true,
-  "_installable": true,
   "_location": "/language-haskell",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11739-17199-154fmdl/package.tgz",
+    "raw": "/tmp/d-11794-13587-nyvfk9.hhtu8lg14i/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11739-17199-154fmdl/package.tgz",
-    "spec": "/tmp/d-11739-17199-154fmdl/package.tgz",
+    "rawSpec": "/tmp/d-11794-13587-nyvfk9.hhtu8lg14i/package.tgz",
+    "spec": "/tmp/d-11794-13587-nyvfk9.hhtu8lg14i/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11739-17199-154fmdl/package.tgz",
-  "_shasum": "d3169c9bb25afcc7e4e475cb4ec0a12208e37221",
+  "_resolved": "file:../d-11794-13587-nyvfk9.hhtu8lg14i/package.tgz",
+  "_shasum": "e62b9c92dd1255e64a64a9bd1dbe342be5c847f0",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11739-17199-154fmdl/package.tgz",
-  "_where": "/tmp/apm-install-dir-11739-17199-uprjhb",
+  "_spec": "/tmp/d-11794-13587-nyvfk9.hhtu8lg14i/package.tgz",
+  "_where": "/tmp/apm-install-dir-11794-13587-rl2784.wxp4d9529",
   "bugs": {
     "url": "https://github.com/atom-haskell/language-haskell/issues"
   },
@@ -60,5 +59,30 @@
     "type": "git",
     "url": "git+https://github.com/atom-haskell/language-haskell.git"
   },
-  "version": "1.12.1"
+  "version": "1.14.2",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "coffeelint.json",
+        "package.json"
+      ],
+      ".coffee": [
+        "src/haskell.coffee",
+        "src/include/haskell-patterns.coffee",
+        "src/include/hsig-patterns.coffee",
+        "src/include/lhs-patterns.coffee",
+        "src/include/liquid-patterns.coffee",
+        "src/include/macros.coffee",
+        "src/include/pragmas.coffee",
+        "src/include/prelude.coffee",
+        "src/include/repository.coffee",
+        "src/include/util.coffee",
+        "src/makeprelude.coffee",
+        "src/syntax-tools.coffee"
+      ]
+    },
+    "folders": []
+  }
 }

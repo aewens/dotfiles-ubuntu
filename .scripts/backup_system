@@ -1,0 +1,15 @@
+#!/bin/bash
+
+DATE=$(date +%Y-%m-%d)
+tar --ignore-failed-read -cvpjf /mnt/backup/system/system_${DATE}.tar.bz2 --exclude=/proc --exclude=/lost+found --exclude=/mnt --exclude=/sys --exclude=/media --exclude=/home /
+if [ -f /mnt/backup/system/system.tar.bz2 ]; then
+    rm /mnt/backup/system/system.tar.bz2
+fi
+ln -s /mnt/backup/system/system_${DATE}.tar.bz2 /mnt/backup/system/system.tar.bz2
+scp /mnt/backup/system/system_${DATE}.tar.bz2 root@storage.local:/root/backups/system/
+FILES=$(ls -1q /mnt/backup/system/* | wc -1)
+
+if [[ $FILES -gt 4 ]]; then
+    OVER=$(( $FILES - 4  ))
+    ls -1t -d /mnt/backup/system/* | tail -$OVER | xargs rm
+fi

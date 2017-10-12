@@ -1,3 +1,26 @@
+## 1.14.2
+* Do not attempt to match newline characters -- Atom 1.22+ compatibility (@Wliu)
+
+## 1.14.1
+* Rudimentary support for LH annotation keywords
+
+## 1.14.0
+* Basic support for liquid types
+* Rework LiquidHaskell (avoid scope leaks)
+
+## 1.13.3
+* Fix mixed-case pragmas (#109)
+
+## 1.13.2
+* Add "lazy" function signatures to hsig (works if :: is on next line)
+* Update CI script
+
+## 1.13.1
+* Added comments to hsig top level
+
+## 1.13.0
+* Added hsig grammar; fixed operatorChar in lhs
+
 ## 1.12.1
 * Fix comments in imports (now before ())
 

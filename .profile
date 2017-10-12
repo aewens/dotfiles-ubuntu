@@ -20,5 +20,7 @@ if [ $XDG_CURRENT_DESKTOP="i3" ]; then
     XDG_CURRENT_DESKTOP="Unity"
 fi
 
+export CHROME_REMOTE_DESKTOP_DEFAULT_DESKTOP_SIZES=1920×1080
+
 # set PATH so it includes user's private bin directories
 PATH="$HOME/bin:$HOME/.local/bin:$PATH"

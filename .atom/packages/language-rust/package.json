@@ -2,40 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11739-17237-yxfd3g/package.tgz",
+        "raw": "/tmp/d-11794-13598-e0qtgx.v3qb54gqfr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11739-17237-yxfd3g/package.tgz",
-        "spec": "/tmp/d-11739-17237-yxfd3g/package.tgz",
+        "rawSpec": "/tmp/d-11794-13598-e0qtgx.v3qb54gqfr/package.tgz",
+        "spec": "/tmp/d-11794-13598-e0qtgx.v3qb54gqfr/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11739-17237-3h6j8b"
+      "/tmp/apm-install-dir-11794-13598-1suk5b6.ppn88pk3xr"
     ]
   ],
-  "_from": "../d-11739-17237-yxfd3g/package.tgz",
-  "_id": "language-rust@0.4.10",
+  "_from": "../d-11794-13598-e0qtgx.v3qb54gqfr/package.tgz",
+  "_id": "language-rust@0.4.12",
   "_inCache": true,
-  "_installable": true,
   "_location": "/language-rust",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11739-17237-yxfd3g/package.tgz",
+    "raw": "/tmp/d-11794-13598-e0qtgx.v3qb54gqfr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11739-17237-yxfd3g/package.tgz",
-    "spec": "/tmp/d-11739-17237-yxfd3g/package.tgz",
+    "rawSpec": "/tmp/d-11794-13598-e0qtgx.v3qb54gqfr/package.tgz",
+    "spec": "/tmp/d-11794-13598-e0qtgx.v3qb54gqfr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11739-17237-yxfd3g/package.tgz",
-  "_shasum": "b484a68dc76f1b82b32d21e28a8b6371234028fb",
+  "_resolved": "file:../d-11794-13598-e0qtgx.v3qb54gqfr/package.tgz",
+  "_shasum": "3efc1cef78e8126b8c73d8bbef07819c8baed459",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11739-17237-yxfd3g/package.tgz",
-  "_where": "/tmp/apm-install-dir-11739-17237-3h6j8b",
+  "_spec": "/tmp/d-11794-13598-e0qtgx.v3qb54gqfr/package.tgz",
+  "_where": "/tmp/apm-install-dir-11794-13598-1suk5b6.ppn88pk3xr",
   "bugs": {
     "url": "https://github.com/zargony/atom-language-rust/issues"
   },
@@ -61,5 +60,15 @@
     "type": "git",
     "url": "git+https://github.com/zargony/atom-language-rust.git"
   },
-  "version": "0.4.10"
+  "version": "0.4.12",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
 }

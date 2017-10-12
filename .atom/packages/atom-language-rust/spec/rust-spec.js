@@ -1,4 +1,4 @@
-'use babel';
+/** @babel */
 
 import dedent from 'dedent-js';
 
@@ -389,6 +389,15 @@ describe('atom-language-rust', () => {
         value: 'match'
       });
     });
+    it('should terminate named function argument usages', () => {
+      let tokens = grammar.tokenizeLines(
+        'smart_macro!{ fn foo() -> bool }'
+      );
+      expect(tokens[0][13]).toEqual({
+        scopes: ['source.rust', 'punctuation.symbol.rust'],
+        value: '}'
+      });
+    });
   });
 
   describe('when tokenizing primitive casts', () => {
@@ -519,7 +528,7 @@ describe('atom-language-rust', () => {
       // Position cursor before the 'this' word
       editor.getLastCursor().setBufferPosition([0, 9]);
       editor.toggleLineCommentsInSelection();
-      expect(buffer.getText()).toEqual('//comment this out');
+      expect(buffer.getText()).toEqual('// comment this out');
       editor.toggleLineCommentsInSelection();
       expect(buffer.getText()).toEqual(text);
     });
@@ -535,7 +544,7 @@ describe('atom-language-rust', () => {
       editor.setSelectedBufferRange([[0, 9], [2, 9]]);
       editor.toggleLineCommentsInSelection();
       expect(buffer.getText()).toEqual(
-        '//comment this out\n//comment this out\n//comment this out'
+        '// comment this out\n// comment this out\n// comment this out'
       );
       editor.toggleLineCommentsInSelection();
       expect(buffer.getText()).toEqual(text);

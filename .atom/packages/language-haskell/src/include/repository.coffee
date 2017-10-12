@@ -36,7 +36,7 @@ module.exports=
         patterns: [
             name: 'comment.line.double-dash.haddock.haskell'
             begin: /(--+)\s+([|^])/
-            end: /\n/
+            end: /$/
             beginCaptures:
               1: name: 'punctuation.definition.comment.haskell'
               2: name: 'punctuation.definition.comment.haddock.haskell'
@@ -52,7 +52,7 @@ module.exports=
         patterns: [
             name: 'comment.line.double-dash.haskell'
             begin: /--/
-            end: /\n/
+            end: /$/
             beginCaptures:
               0: name: 'punctuation.definition.comment.haskell'
         ]
@@ -109,7 +109,7 @@ module.exports=
     begin: /\{-#/
     end: /#-\}/
     patterns: [
-        match: "{lb}(#{pragmas.join('|')}){rb}"
+        match: "{lb}((?i:#{pragmas.join('|')})){rb}"
         name: 'keyword.other.preprocessor.haskell'
     ]
   function_type_declaration:
@@ -127,6 +127,24 @@ module.exports=
     patterns: [
         include: '#type_signature'
     ]
+  lazy_function_type_signature:
+    name: 'meta.function.type-declaration.haskell'
+    begin: /{indentBlockStart}({functionList})\s*$/
+    end: /{indentBlockEnd}/
+    contentName: 'meta.type-signature.haskell'
+    beginCaptures:
+      2:
+        patterns: [
+            {include: '#function_name'}
+            {include: '#infix_op'}
+        ]
+    patterns: [
+        {include: '#double_colon_operator'}
+        {include: '#type_signature'}
+    ]
+  double_colon_operator:
+    name: 'keyword.other.double-colon.haskell'
+    match: '{doubleColonOperator}'
   ctor_type_declaration:
     name: 'meta.ctor.type-declaration.haskell'
     begin: /{indentBlockStart}{ctorTypeDeclaration}/
@@ -240,6 +258,20 @@ module.exports=
   module_decl:
     name: 'meta.declaration.module.haskell'
     begin: /{indentBlockStart}(module){rb}/
+    end: /{lb}(where){rb}|{indentBlockEnd}/
+    beginCaptures:
+      2: name: 'keyword.other.haskell'
+    endCaptures:
+      1: name: 'keyword.other.haskell'
+    patterns: [
+        {include: '#comments'}
+        {include: '#module_name'}
+        {include: '#module_exports'}
+        {include: '#invalid'}
+    ]
+  hsig_decl:
+    name: 'meta.declaration.module.haskell'
+    begin: /{indentBlockStart}(signature){rb}/
     end: /{lb}(where){rb}|{indentBlockEnd}/
     beginCaptures:
       2: name: 'keyword.other.haskell'
@@ -398,7 +430,7 @@ module.exports=
   c_preprocessor:
     name: 'meta.preprocessor.c'
     begin: /{maybeBirdTrack}(?=#)/
-    end: '(?<!\\\\)(?=\\n)'
+    end: '(?<!\\\\)(?=$)'
     patterns: [
       include: 'source.c'
     ]
@@ -536,7 +568,7 @@ module.exports=
     begin: '\\{-@(?!#)'
     end: '@-\\}'
     patterns: [
-        include: '#haskell_expr'
+      { include: 'annotation.liquidhaskell.haskell' }
     ]
   shebang:
     name: 'comment.line.shebang.haskell'
@@ -560,22 +592,38 @@ module.exports=
     { include: '#identifier' }
     { include: '#type_ctor' }
   ]
-  haskell_toplevel: [
-    { include: '#liquidhaskell_annotation' }
+  common_toplevel: [
     { include: '#class_decl' }
     { include: '#instance_decl' }
     { include: '#deriving_instance_decl' }
     { include: '#foreign_import' }
     { include: '#regular_import' }
     { include: '#data_decl' }
-    { include: '#type_alias' } # TODO: review stopped here
+    { include: '#type_alias' }
     { include: '#c_preprocessor' }
+  ]
+  function_type_declaration_with_scoped_type: [
     { include: '#scoped_type_override' }
     { include: '#function_type_declaration' }
+  ]
+  haskell_toplevel: [
+    { include: '#liquidhaskell_annotation' }
+    { include: '#common_toplevel' }
+    { include: '#function_type_declaration_with_scoped_type' }
     { include: '#haskell_expr' }
+  ]
+  hsig_toplevel: [
+    { include: '#common_toplevel' }
+    { include: '#function_type_declaration' }
+    { include: '#lazy_function_type_signature' }
+    { include: '#comments' }
   ]
   haskell_source: [
     { include: '#shebang' }
     { include: '#module_decl' }
     { include: '#haskell_toplevel' }
+  ]
+  hsig_source: [
+    { include: '#hsig_decl' }
+    { include: '#hsig_toplevel' }
   ]

@@ -11,6 +11,15 @@ makeGrammar "grammars/haskell.cson",
   repository: include 'repository'
   patterns: include 'haskell-patterns'
 
+makeGrammar "grammars/module signature.cson",
+  name: 'Haskell Module Signature'
+  fileTypes: [ 'hsig' ]
+  scopeName: 'source.hsig'
+
+  macros: include('macros')
+  repository: include 'repository'
+  patterns: include 'hsig-patterns'
+
 makeGrammar "grammars/haskell autocompletion hint.cson",
   # name: 'Haskell Autocompletion Hint'
   fileTypes: []
@@ -71,6 +80,39 @@ makeGrammar "grammars/literate haskell.cson",
     maybeBirdTrack: /^(?:>|<) /
     indentBlockEnd:
       /^(?!(?:>|<) \1{indentChar}|(?:>|<) {indentChar}*$)|^(?!(?:>|<) )/
-    operatorChar: /[\p{S}\p{P}&&[^(),;\[\]`{}_"'\|]]/
+    operatorChar: '(?:[\\p{S}\\p{P}](?<![(),;\\[\\]`{}_"\'\\|]))'
   patterns: include 'lhs-patterns'
   repository: include 'repository'
+
+makeGrammar "grammars/liquid haskell.cson",
+  # name: 'Liquid Haskell'
+  fileTypes: []
+  scopeName: 'annotation.liquidhaskell.haskell'
+
+  macros: _.extend (require 'clone')(include('macros')),
+    maybeBirdTrack: '(?:\\G(?:\\s*\\w+\\s)?|^)'
+    indentBlockEnd: /(?:^(?!\1{indentChar}|{indentChar}*$)|(?=@-}))/
+  patterns: include 'liquid-patterns'
+  repository: _.extend (require 'clone')(include 'repository'),
+    type_signature_hs: (include 'repository').type_signature
+    type_signature:
+      patterns: [
+        { include: '#liquid_id' }
+        { include: '#liquid_type' }
+        { include: '#type_signature_hs' }
+      ]
+    liquid_id:
+      match: /{functionName}\s*:/
+      captures:
+        0: patterns: [ include: '#identifier' ]
+    liquid_type:
+      begin: /\{/
+      end: /\}/
+      name: 'liquid.type.haskell'
+      patterns: [
+        {
+          match: /\G(.*?)\|/
+          captures: 1: patterns: [include: '#type_signature']
+        }
+        { include: '#haskell_expr' }
+      ]

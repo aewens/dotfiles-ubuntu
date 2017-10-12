@@ -246,7 +246,11 @@ for_window [class="^.*"] border pixel 10
 # assign [class="Firefox"] $ws4
 
 exec --no-startup-id i3-msg 'workspace $ws1; exec /usr/bin/thunar'
-exec --no-startup-id i3-msg 'workspace $ws2; exec /usr/bin/chromium-browser'
+exec --no-startup-id i3-msg 'workspace $ws2; exec /usr/bin/google-chrome'
+exec --no-startup-id i3-msg 'workspace $ws3; exec /usr/bin/atom'
+exec --no-startup-id i3-msg 'workspace $ws3; exec /usr/bin/google-chrome'
+exec --no-startup-id i3-msg 'workspace $ws4; exec /usr/bin/gnome-terminal'
+exec --no-startup-id i3-msg 'workspace $ws5; exec /usr/bin/filezilla'
 
 exec_always --no-startup-id feh --bg-scale /home/aewens/.wallpaper
 exec_always --no-startup-id xrdb ~/.Xresources
@@ -255,5 +259,5 @@ exec xset s off
 exec xset -dpms
 exec compton -ff
 
-exec thunar
-exec chromium-browser
+#exec thunar
+#exec google-chrome

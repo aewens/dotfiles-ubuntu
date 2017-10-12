@@ -22,10 +22,13 @@
     ]
   editor:
     fontFamily: "Fira Code"
-    fontSize: 13
+    fontSize: 12
     invisibles: {}
+    scrollPastEnd: true
     showIndentGuide: true
     showInvisibles: true
+    softWrap: true
+    softWrapAtPreferredLineLength: true
     tabLength: 4
     tabType: "soft"
   emmet: {}

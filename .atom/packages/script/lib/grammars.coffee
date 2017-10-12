@@ -44,6 +44,17 @@ module.exports =
       command: "babel-node"
       args: (context) -> [context.filepath]
 
+  'Bash Automated Test System (Bats)':
+    "File Based":
+      command: "bats"
+      args: (context) -> [context.filepath]
+    "Selection Based":
+      command: 'bats'
+      args: (context) ->
+        code = context.getCode(true)
+        tmpFile = GrammarUtils.createTempFileWithCode(code)
+        [tmpFile]
+
   Batch:
     "File Based":
       command: "cmd.exe"
@@ -127,6 +138,38 @@ module.exports =
 
   'C++':
     if GrammarUtils.OperatingSystem.isDarwin()
+      "Selection Based":
+        command: "bash"
+        args: (context) ->
+          code = context.getCode(true)
+          tmpFile = GrammarUtils.createTempFileWithCode(code, ".cpp")
+          ["-c", "xcrun clang++ -fcolor-diagnostics -std=c++14 -Wall -include stdio.h -include iostream '" + tmpFile + "' -o /tmp/cpp.out && /tmp/cpp.out"]
+      "File Based":
+        command: "bash"
+        args: (context) -> ['-c', "xcrun clang++ -fcolor-diagnostics -std=c++14 -Wall -include stdio.h -include iostream '" + context.filepath + "' -o /tmp/cpp.out && /tmp/cpp.out"]
+    else if GrammarUtils.OperatingSystem.isLinux()
+      "Selection Based":
+        command: "bash"
+        args: (context) ->
+          code = context.getCode(true)
+          tmpFile = GrammarUtils.createTempFileWithCode(code, ".cpp")
+          ["-c", "g++ -std=c++14 -Wall -include stdio.h -include iostream '" + tmpFile + "' -o /tmp/cpp.out && /tmp/cpp.out"]
+      "File Based":
+        command: "bash"
+        args: (context) -> ["-c", "g++ -std=c++14 -Wall -include stdio.h -include iostream '" + context.filepath + "' -o /tmp/cpp.out && /tmp/cpp.out"]
+    else if GrammarUtils.OperatingSystem.isWindows() and GrammarUtils.OperatingSystem.release().split(".").slice -1 >= '14399'
+      "File Based":
+        command: "bash"
+        args: (context) -> ["-c", "g++ -std=c++14 -Wall -include stdio.h -include iostream '/mnt/" + path.posix.join.apply(path.posix, [].concat([context.filepath.split(path.win32.sep)[0].toLowerCase()], context.filepath.split(path.win32.sep).slice(1))).replace(":", "") + "' -o /tmp/cpp.out && /tmp/cpp.out"]
+
+  'C++14':
+    if GrammarUtils.OperatingSystem.isDarwin()
+      "Selection Based":
+        command: "bash"
+        args: (context) ->
+          code = context.getCode(true)
+          tmpFile = GrammarUtils.createTempFileWithCode(code, ".cpp")
+          ["-c", "xcrun clang++ -fcolor-diagnostics -std=c++14 -Wall -include stdio.h -include iostream '" + tmpFile + "' -o /tmp/cpp.out && /tmp/cpp.out"]
       "File Based":
         command: "bash"
         args: (context) -> ['-c', "xcrun clang++ -fcolor-diagnostics -std=c++14 -Wall -include stdio.h -include iostream '" + context.filepath + "' -o /tmp/cpp.out && /tmp/cpp.out"]
@@ -156,17 +199,22 @@ module.exports =
   CoffeeScript:
     "Selection Based":
       command: "coffee"
-      args: (context) -> GrammarUtils.CScompiler.args.concat [context.getCode()]
+      args: (context) -> ['--transpile', '-e', context.getCode()]
     "File Based":
       command: "coffee"
-      args: (context) -> [context.filepath]
+      args: (context) -> ['-t', context.filepath]
 
   "CoffeeScript (Literate)":
     'Selection Based':
       command: 'coffee'
-      args: (context) -> GrammarUtils.CScompiler.args.concat [context.getCode()]
+      args: (context) -> ['-t', '-e', context.getCode()]
     'File Based':
       command: 'coffee'
+      args: (context) -> ['-t', context.filepath]
+
+  "Common Lisp":
+    "File Based":
+      command: "clisp"
       args: (context) -> [context.filepath]
 
   Crystal:
@@ -243,6 +291,17 @@ module.exports =
       command: "fstar"
       args: (context) -> [context.filepath]
 
+  Fable:
+    "Selection Based":
+      command: "fable"
+      args: (context) ->
+        code = context.getCode()
+        tmpFile = GrammarUtils.createTempFileWithCode(code)
+        [tmpFile]
+    "File Based":
+      command: "fable"
+      args: (context) -> [context.filepath]
+
   Forth:
     "File Based":
       command: "gforth"
@@ -267,6 +326,17 @@ module.exports =
     "File Based":
       command: "bash"
       args: (context) -> ['-c', "gfortran '" + context.filepath + "' -ffixed-form -o /tmp/f.out && /tmp/f.out"]
+      
+  "Free Pascal":
+    "Selection Based":
+      command: "fsc"
+      args: (context) ->
+        code = context.getCode()
+        tmpFile = GrammarUtils.createTempFileWithCode(code)
+        [tmpFile]
+    "File Based":
+      command: "fsc"
+      args: (context) -> [context.filepath]
 
   Gherkin:
     "File Based":
@@ -325,6 +395,11 @@ module.exports =
       command: "iced"
       args: (context) -> [context.filepath]
 
+  Idris:
+    "File Based":
+      command: "idris"
+      args: (context) -> [context.filepath, '-o', path.basename(context.filepath, path.extname(context.filepath))]
+
   InnoSetup:
     "File Based":
       command: "ISCC.exe"
@@ -342,20 +417,32 @@ module.exports =
     "File Based":
       command: if GrammarUtils.OperatingSystem.isWindows() then "cmd" else "bash"
       args: (context) ->
-        className = context.filename.replace /\.java$/, ""
+        className = GrammarUtils.Java.getClassName context
+        classPackages = GrammarUtils.Java.getClassPackage context
+        sourcePath = GrammarUtils.Java.getProjectPath context
+
         args = []
         if GrammarUtils.OperatingSystem.isWindows()
           args = ["/c javac -Xlint #{context.filename} && java #{className}"]
         else
-          args = ['-c', "javac -d /tmp '#{context.filepath}' && java -cp /tmp #{className}"]
+          args = ['-c', "javac -sourcepath #{sourcePath} -d /tmp '#{context.filepath}' && java -cp /tmp #{classPackages}#{className}"]
+
         return args
 
   JavaScript:
     "Selection Based":
-      command: "node"
+      command: "babel-node"
       args: (context)  -> ['-e', context.getCode()]
     "File Based":
-      command: "node"
+      command: "babel-node"
+      args: (context) -> [context.filepath]
+
+  'JavaScript with JSX':
+    "Selection Based":
+      command: "babel-node"
+      args: (context)  -> ['-e', context.getCode()]
+    "File Based":
+      command: "babel-node"
       args: (context) -> [context.filepath]
 
   "JavaScript for Automation (JXA)":
@@ -855,6 +942,11 @@ module.exports =
     "File Based":
       command: "tclsh"
       args: (context) -> [context.filepath]
+
+  Turing:
+    "File Based":
+      command: "turing"
+      args: (context) -> ['-run', context.filepath]
 
   TypeScript:
     "Selection Based":

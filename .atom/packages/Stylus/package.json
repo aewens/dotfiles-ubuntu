@@ -2,40 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11739-17268-1dqbxv2/package.tgz",
+        "raw": "/tmp/d-11794-13661-icqhoj.xbp78hbyb9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11739-17268-1dqbxv2/package.tgz",
-        "spec": "/tmp/d-11739-17268-1dqbxv2/package.tgz",
+        "rawSpec": "/tmp/d-11794-13661-icqhoj.xbp78hbyb9/package.tgz",
+        "spec": "/tmp/d-11794-13661-icqhoj.xbp78hbyb9/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11739-17268-19dazxf"
+      "/tmp/apm-install-dir-11794-13661-xxvum.jdr7xh6w29"
     ]
   ],
-  "_from": "../d-11739-17268-1dqbxv2/package.tgz",
-  "_id": "Stylus@3.1.0",
+  "_from": "../d-11794-13661-icqhoj.xbp78hbyb9/package.tgz",
+  "_id": "Stylus@3.1.1",
   "_inCache": true,
-  "_installable": true,
   "_location": "/Stylus",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11739-17268-1dqbxv2/package.tgz",
+    "raw": "/tmp/d-11794-13661-icqhoj.xbp78hbyb9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11739-17268-1dqbxv2/package.tgz",
-    "spec": "/tmp/d-11739-17268-1dqbxv2/package.tgz",
+    "rawSpec": "/tmp/d-11794-13661-icqhoj.xbp78hbyb9/package.tgz",
+    "spec": "/tmp/d-11794-13661-icqhoj.xbp78hbyb9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11739-17268-1dqbxv2/package.tgz",
-  "_shasum": "67f598ef65cf92066ce8ce99c53357e5ffc51861",
+  "_resolved": "file:../d-11794-13661-icqhoj.xbp78hbyb9/package.tgz",
+  "_shasum": "08580adb70f9c6a66fd57da49551dec030494d67",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11739-17268-1dqbxv2/package.tgz",
-  "_where": "/tmp/apm-install-dir-11739-17268-19dazxf",
+  "_spec": "/tmp/d-11794-13661-icqhoj.xbp78hbyb9/package.tgz",
+  "_where": "/tmp/apm-install-dir-11794-13661-xxvum.jdr7xh6w29",
   "author": {
     "name": "Matthew Harrison-Jones"
   },
@@ -63,5 +62,5 @@
     "type": "git",
     "url": "git+https://github.com/matthojo/language-stylus.git"
   },
-  "version": "3.1.0"
+  "version": "3.1.1"
 }

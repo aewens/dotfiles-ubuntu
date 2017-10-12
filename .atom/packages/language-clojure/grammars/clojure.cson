@@ -10,6 +10,8 @@
   'clojure'
   'edn'
   'org'
+  'joke'
+  'joker'
 ]
 'foldingStartMarker': '\\(\\s*$'
 'foldingStopMarker': '^\\s*\\)'
@@ -82,14 +84,11 @@
   {
     'include': '#symbol'
   }
-  {
-    'include': '#whitespace'
-  }
 ]
 'repository':
   'comment':
     # NOTE: This must be kept as a begin/end match for language-todo to work
-    'begin': ';'
+    'begin': '(?<!\\\\);'
     'beginCaptures':
       '0':
         'name': 'punctuation.definition.comment.clojure'
@@ -214,15 +213,13 @@
     'beginCaptures':
       '1':
         'name': 'punctuation.section.expression.begin.clojure'
-    'end': '(\\))(\\n)|(\\)(?=[\\}\\]\\)\\s]*(?:;|$)))|(\\))'
+    'end': '(\\))$|(\\)(?=[\\}\\]\\)\\s]*(?:;|$)))|(\\))'
     'endCaptures':
       '1':
         'name': 'punctuation.section.expression.end.trailing.clojure'
       '2':
-        'name': 'meta.after-expression.clojure'
-      '3':
         'name': 'punctuation.section.expression.end.trailing.clojure'
-      '4':
+      '3':
         'name': 'punctuation.section.expression.end.clojure'
     'name': 'meta.quoted-expression.clojure'
     'patterns': [
@@ -231,8 +228,14 @@
       }
     ]
   'regexp':
-    'begin': '#\\"'
-    'end': '\\"'
+    'begin': '#"'
+    'beginCaptures':
+      '0':
+        'name': 'punctuation.definition.regexp.begin.clojure'
+    'end': '"'
+    'endCaptures':
+      '0':
+        'name': 'punctuation.definition.regexp.end.clojure'
     'name': 'string.regexp.clojure'
     'patterns': [
       {
@@ -264,20 +267,19 @@
     'beginCaptures':
       '1':
         'name': 'punctuation.section.expression.begin.clojure'
-    'end': '(\\))(\\n)|(\\)(?=[\\}\\]\\)\\s]*(?:;|$)))|(\\))'
+    'end': '(\\))$|(\\)(?=[\\}\\]\\)\\s]*(?:;|$)))|(\\))'
     'endCaptures':
       '1':
         'name': 'punctuation.section.expression.end.trailing.clojure'
       '2':
-        'name': 'meta.after-expression.clojure'
-      '3':
         'name': 'punctuation.section.expression.end.trailing.clojure'
-      '4':
+      '3':
         'name': 'punctuation.section.expression.end.clojure'
     'name': 'meta.expression.clojure'
     'patterns': [
       {
-        'begin': '(?<=\\()(ns|def|def-|defn|defn-|defvar|defvar-|defmacro|defmacro-|deftest)\\s+'
+        # ns, declare and everything that starts with def* or namespace/def*
+        'begin': '(?<=\\()(ns|declare|def[\\w\\d._:+=><!?*-]*|[\\w._:+=><!?*-][\\w\\d._:+=><!?*-]*/def[\\w\\d._:+=><!?*-]*)\\s+'
         'beginCaptures':
           '1':
             'name': 'keyword.control.clojure'
@@ -396,6 +398,3 @@
         'include': '$self'
       }
     ]
-  'whitespace':
-    'match': '\\s+$'
-    'name': 'invalid.trailing-whitespace'

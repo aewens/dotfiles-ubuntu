@@ -2,40 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11739-17161-13amjs/package.tgz",
+        "raw": "/tmp/d-11794-13534-sno4uw.dcwbqpvi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11739-17161-13amjs/package.tgz",
-        "spec": "/tmp/d-11739-17161-13amjs/package.tgz",
+        "rawSpec": "/tmp/d-11794-13534-sno4uw.dcwbqpvi/package.tgz",
+        "spec": "/tmp/d-11794-13534-sno4uw.dcwbqpvi/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11739-17161-69rnft"
+      "/tmp/apm-install-dir-11794-13534-1otqeac.vjd16vfgvi"
     ]
   ],
-  "_from": "../d-11739-17161-13amjs/package.tgz",
-  "_id": "language-clojure@0.22.2",
+  "_from": "../d-11794-13534-sno4uw.dcwbqpvi/package.tgz",
+  "_id": "language-clojure@0.22.4",
   "_inCache": true,
-  "_installable": true,
   "_location": "/language-clojure",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11739-17161-13amjs/package.tgz",
+    "raw": "/tmp/d-11794-13534-sno4uw.dcwbqpvi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11739-17161-13amjs/package.tgz",
-    "spec": "/tmp/d-11739-17161-13amjs/package.tgz",
+    "rawSpec": "/tmp/d-11794-13534-sno4uw.dcwbqpvi/package.tgz",
+    "spec": "/tmp/d-11794-13534-sno4uw.dcwbqpvi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11739-17161-13amjs/package.tgz",
-  "_shasum": "9e84969655204d630eef7c99b94d3c9b54edb0b0",
+  "_resolved": "file:../d-11794-13534-sno4uw.dcwbqpvi/package.tgz",
+  "_shasum": "5b8eae7ed983624a29e6b802c8a4731f5337a8ee",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11739-17161-13amjs/package.tgz",
-  "_where": "/tmp/apm-install-dir-11739-17161-69rnft",
+  "_spec": "/tmp/d-11794-13534-sno4uw.dcwbqpvi/package.tgz",
+  "_where": "/tmp/apm-install-dir-11794-13534-1otqeac.vjd16vfgvi",
   "bugs": {
     "url": "https://github.com/atom/language-clojure/issues"
   },
@@ -58,5 +57,16 @@
     "type": "git",
     "url": "git+https://github.com/atom/language-clojure.git"
   },
-  "version": "0.22.2"
+  "version": "0.22.4",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "coffeelint.json",
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
 }
