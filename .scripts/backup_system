@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DATE=$(date +%Y-%m-%d)
-tar --ignore-failed-read -cvpjf /mnt/backup/system/system_${DATE}.tar.bz2 --exclude=/proc --exclude=/lost+found --exclude=/mnt --exclude=/sys --exclude=/media --exclude=/home /
+tar --ignore-failed-read --exclude=/proc --exclude=/lost+found --exclude=/mnt --exclude=/sys --exclude=/media --exclude=/dev --exclude=/home -cvpjf /mnt/backup/system/system_${DATE}.tar.bz2 /
 if [ -f /mnt/backup/system/system.tar.bz2 ]; then
     rm /mnt/backup/system/system.tar.bz2
 fi
