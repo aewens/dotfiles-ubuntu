@@ -153,5 +153,5 @@ if ! shopt -oq posix; then
   fi
 fi
 
-PATH=$PATH:~/.bin
+PATH=~/.bin:$PATH
 export PATH

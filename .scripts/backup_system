@@ -9,10 +9,10 @@ ln -s /mnt/backup/system/system_${DATE}.tar.bz2 /mnt/backup/system/system.tar.bz
 scp /mnt/backup/system/system_${DATE}.tar.bz2 root@storage.local:/root/backups/system/
 ssh root@storage.local "if [ -f /root/backups/system/system.tar.bz2 ]; then rm /root/backups/system/system.tar.bz2; fi"
 ssh root@storage.local "ln -s /root/backups/system/system_${DATE}.tar.bz2 /root/backups/system/system.tar.bz2"
-FILES=$(ls -1q /mnt/backup/system/* | wc -1)
+FILES=$(ls -1q /mnt/backup/system/* | wc -l)
 
 if [[ $FILES -gt 4 ]]; then
     OVER=$(( $FILES - 4  ))
-    ls -1t -d /mnt/backup/system/* | tail -$OVER | xargs rm
+    ls -1t -d /mnt/backup/system/* | tail -$OVER | xargs rm 
 fi
 
