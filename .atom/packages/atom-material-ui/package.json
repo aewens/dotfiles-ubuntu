@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/tmp/d-11794-13500-825mfa.9zkn75jyvi/package.tgz",
+        "raw": "/tmp/d-1171015-4700-hk48zm.716gh9f6r/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/tmp/d-11794-13500-825mfa.9zkn75jyvi/package.tgz",
-        "spec": "/tmp/d-11794-13500-825mfa.9zkn75jyvi/package.tgz",
+        "rawSpec": "/tmp/d-1171015-4700-hk48zm.716gh9f6r/package.tgz",
+        "spec": "/tmp/d-1171015-4700-hk48zm.716gh9f6r/package.tgz",
         "type": "local"
       },
-      "/tmp/apm-install-dir-11794-13500-prkdhk.tj0885mi"
+      "/tmp/apm-install-dir-1171015-4700-llp8ix.uddwmte29"
     ]
   ],
-  "_from": "../d-11794-13500-825mfa.9zkn75jyvi/package.tgz",
-  "_id": "atom-material-ui@2.0.4",
+  "_from": "../d-1171015-4700-hk48zm.716gh9f6r/package.tgz",
+  "_id": "atom-material-ui@2.0.6",
   "_inCache": true,
   "_location": "/atom-material-ui",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/tmp/d-11794-13500-825mfa.9zkn75jyvi/package.tgz",
+    "raw": "/tmp/d-1171015-4700-hk48zm.716gh9f6r/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/tmp/d-11794-13500-825mfa.9zkn75jyvi/package.tgz",
-    "spec": "/tmp/d-11794-13500-825mfa.9zkn75jyvi/package.tgz",
+    "rawSpec": "/tmp/d-1171015-4700-hk48zm.716gh9f6r/package.tgz",
+    "spec": "/tmp/d-1171015-4700-hk48zm.716gh9f6r/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11794-13500-825mfa.9zkn75jyvi/package.tgz",
-  "_shasum": "15f7a622abecc54e890b657e1b6dee1ab8227b3c",
+  "_resolved": "file:../d-1171015-4700-hk48zm.716gh9f6r/package.tgz",
+  "_shasum": "60804c1d4ba1ed8e6c0fe68a8e617375316f83d6",
   "_shrinkwrap": null,
-  "_spec": "/tmp/d-11794-13500-825mfa.9zkn75jyvi/package.tgz",
-  "_where": "/tmp/apm-install-dir-11794-13500-prkdhk.tj0885mi",
+  "_spec": "/tmp/d-1171015-4700-hk48zm.716gh9f6r/package.tgz",
+  "_where": "/tmp/apm-install-dir-1171015-4700-llp8ix.uddwmte29",
   "bugs": {
     "url": "https://github.com/atom-material/atom-material-ui/issues"
   },
@@ -195,7 +195,7 @@
     "url": "git+https://github.com/atom-material/atom-material-ui.git"
   },
   "theme": "ui",
-  "version": "2.0.4",
+  "version": "2.0.6",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

@@ -97,7 +97,7 @@ bindsym $mod+a focus parent
 
 # Workspace variables
 set $ws1 "1. "
-set $ws2 "2. "
+set $ws2 "2. "
 set $ws3 "3. "
 set $ws4 "4. "
 set $ws5 "5. "
@@ -231,11 +231,53 @@ bindsym --release $mod+Shift+Print exec scrot -s $HOME/Pictures/Screenshots/`dat
 bindsym $mod+Shift+a exec --no-startup-id pactl set-card-profile 0 output:analog-stereo+input:analog-stereo
 bindsym $mod+Shift+s exec --no-startup-id pactl set-card-profile 0 output:hdmi-stereo+input:analog-stereo
 
-gaps inner 10
-gaps outer 15
+
+set $mode_gaps Gaps: (o) outer, (i) inner, t (toggle), r (reset), Shift+r (reset all)
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+	bindsym o       mode "$mode_gaps_outer"
+    bindsym i       mode "$mode_gaps_inner"
+    bindsym t       mode "default", gaps inner current set 0, gaps outer current set 0
+    bindsym r       mode "default", gaps inner current set 30, gaps outer current set 0
+    bindsym Shift+r mode "default", gaps inner all set 30, gaps outer all set 0
+    bindsym Return  mode "default"
+    bindsym Escape  mode "default"
+}
+
+mode "$mode_gaps_inner" {
+    bindsym plus  gaps inner current plus 5
+    bindsym minus gaps inner current minus 5
+    bindsym 0     gaps inner current set 0
+
+    bindsym Shift+plus  gaps inner all plus 5
+    bindsym Shift+minus gaps inner all minus 5
+    bindsym Shift+0     gaps inner all set 0
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+    bindsym plus  gaps outer current plus 5
+    bindsym minus gaps outer current minus 5
+    bindsym 0     gaps outer current set 0
+
+    bindsym Shift+plus  gaps outer all plus 5
+    bindsym Shift+minus gaps outer all minus 5
+    bindsym Shift+0     gaps outer all set 0
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+gaps inner 30
+gaps outer 0
 
 smart_borders on
 smart_gaps on
+
 
 # hide_edge_borders both
 for_window [class="^.*"] border pixel 10
@@ -247,9 +289,9 @@ for_window [class="^.*"] border pixel 10
 # assign [class="Firefox"] $ws4
 
 exec --no-startup-id i3-msg 'workspace $ws1; exec /usr/bin/thunar'
-exec --no-startup-id i3-msg 'workspace $ws2; exec /usr/bin/google-chrome'
+exec --no-startup-id i3-msg 'workspace $ws2; exec /home/aewens/.bin/firefox'
 exec --no-startup-id i3-msg 'workspace $ws3; exec /usr/bin/atom'
-exec --no-startup-id i3-msg 'workspace $ws3; exec /usr/bin/google-chrome'
+exec --no-startup-id i3-msg 'workspace $ws3; exec /home/aewens/.bin/firefox-dev'
 exec --no-startup-id i3-msg 'workspace $ws4; exec /usr/bin/gnome-terminal'
 exec --no-startup-id i3-msg 'workspace $ws5; exec /usr/bin/filezilla'
 
